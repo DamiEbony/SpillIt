@@ -1,0 +1,26 @@
+
+
+
+<div>
+    {% for room in rooms %}
+    <div>
+        <img style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover; margin-right: 10px;" 
+        src="{{ room.host.avatar.url }}" alt="{{ room.host.username }}">
+    </div>
+    <div>
+     {% if request.user == room.host %}
+        <a href="{% url 'update-room' room.id %}"> Edit Room</a>
+        <a href="{% url 'delete-room' room.id %}"> / Delete</a>
+        {% endif %}
+        <div> 
+            
+        <a href="{% url 'user-profile' room.host.id %}">@{{room.host.username}}</a>
+        <h4> <a href="{% url 'room' room.id %}">{{room.name}}</h4></a>
+        <small>{{room.topic.name}}</small>
+        <p><small> {{ room.guests.all.count }} joined</small></p>
+        <hr>
+        </div>
+       
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,68 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .room-container {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+    .guests-section {
+        border-left: 1px solid #ccc;
+        padding-left: 20px;
+    }
+</style>
+
+<div class="room-container">
+    <div>
+
+        <h1>{{ room.name }}</h1>
+        <small>Hosted By <a href="{% url 'user-profile' room.host.id %}">@{{room.host.username}}</a> </small>
+       
+        <!-- <p>{{ room.description }}</p> -->
+        <p>{{room.topic}}</p>
+
+        <h3>Comments</h3>
+        <hr>
+
+        {% for room_message in room_messages %}
+        <div>
+            <div>
+                <img style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover; margin-right: 10px;" 
+                src="{{ room_message.user.avatar.url }}" alt="{{ room.host.username }}">
+            </div>
+            <small>@{{ room_message.user.name }} {{ room_message.created|timesince }} ago</small>
+            <p>{{ room_message.body }}</p>
+            {% if room_message.user == request.user %}
+            <a href="{% url 'delete-message' room_message.id %}"> Delete </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        {% if request.user.is_authenticated %}
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="body" placeholder="Your words, please!..." />
+        </form>
+        {% endif %}
+
+    </div>
+
+    <div class="guests-section">
+        <h3>Guests ({{guests.all.count}}) Joined </h3>
+        <hr>
+         <!-- Your guests content goes here -->
+        {% for guest in guests %}
+
+        <div>
+            <p>{{guest.username}}</p>
+            <p>@{{guest.username}}</p>
+        </div>
+
+        {% endfor %}
+       
+    </div>
+
+</div>
+
+{% endblock content %}

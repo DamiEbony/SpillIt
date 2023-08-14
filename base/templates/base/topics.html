@@ -1,0 +1,25 @@
+{% extends 'main.html'%}
+
+{%  block content %}
+
+<form method="GET" action="">
+    <input type="text" name="q" placeholder="Search topics..." />
+    <input type="submit" value="Search" />
+</form>
+
+<h3>Browse Topic</h3>
+<hr>
+<div>
+    <a href="{% url 'home'%}">All</a>&nbsp;&nbsp;&nbsp;&nbsp;<span> [{{topic.count}}] </span>
+ </div>
+{% for topics in topic%}
+<div>
+<a href="{% url 'home'%}?q={{topics.name}}">{{topics.name}} </a> <span> [{{topics.room_set.all.count}}] </span>
+</div>
+
+
+{% endfor %}
+
+
+{% endblock content %}
+

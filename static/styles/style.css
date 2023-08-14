@@ -1,0 +1,19 @@
+.user-profile {
+    display: flex;
+    align-items: left;
+}
+
+.profile-picture {
+    width: 5px; 
+    height: 5px;
+    border-radius: 10%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.username {
+    text-decoration: none;
+}
+
+
+
