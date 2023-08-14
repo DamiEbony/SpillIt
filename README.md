@@ -1,5 +1,6 @@
 # SpillIt
 SpillRoom Web App - Create, manage, and participate in themed discussion rooms. Users can create rooms, leave comments, and customize profiles. Built with Django."
+
 Project Description:
 Spillit is a web-based platform that allows users to create, manage, and participate in discussion rooms. Users can sign up, log in, and customize their profiles. The platform provides various features like creating rooms, updating user profiles, viewing room discussions, and searching for specific topics.
 Key Features:
