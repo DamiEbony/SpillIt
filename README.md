@@ -16,16 +16,16 @@ Each room has discussions/messages associated with it. Users can participate in 
 4.	Topic Management:
 Topics are associated with rooms and help categorize discussions. Users can specify a topic for a room during creation. Rooms can be filtered by topic.
 
-6.	Search Functionality:
+5.	Search Functionality:
 Users can search for rooms based on names, descriptions, and topics.
 
 6.User Experience:
 User avatars are displayed throughout the application. Profile pictures are displayed on the home page, discussion rooms, and user profiles. User bios are stylized with slanted and cool formatting.
 
-8.	Navigation:
+7.	Navigation:
 The navigation bar provides links to the home page, user profile, and login/logout options.
 
-9. Responsive Design:
+8. Responsive Design:
 The application layout is designed with responsive CSS for different screen sizes.
 
 Project Flow:
